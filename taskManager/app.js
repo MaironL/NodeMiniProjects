@@ -8,15 +8,14 @@ require('dotenv').config();
 
 //*
 //* middleware
-//*
 
 app.use(express.json());
 app.use(express.static('./public'));
+
 //*----------------------------------------------
 
 //*
 //* routes
-//*
 
 app.use('/api/v1/tasks', taskRoutes);
 app.use(notFound);
@@ -26,7 +25,6 @@ app.use(errorHandlerMiddleware);
 
 //*
 //*  App starter
-//*
 
 const port = process.env.PORT || 5000;
 const appStart = async () => {
