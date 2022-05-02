@@ -24,10 +24,10 @@ const UserSchema = new moongose.Schema({
     minlength: 6,
   },
 });
-//@ts-expect-error
+
 UserSchema.pre('save', async function () {
   const salt = await bcrypt.genSalt(10);
-  //@ts-expect-error
+
   this.password = await bcrypt.hash(this.password, salt);
 });
 
@@ -38,7 +38,6 @@ UserSchema.methods.createJWT = function () {
 };
 
 UserSchema.methods.comparePassword = async function (candidatePassword) {
-  //@ts-expect-error
   const isMatch = await bcrypt.compare(candidatePassword, this.password);
   return isMatch;
 };

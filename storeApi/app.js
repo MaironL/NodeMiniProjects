@@ -35,9 +35,11 @@ app.use(errorMiddleware);
 //*
 //*  App starter
 
+// eslint-disable-next-line no-undef
 const port = process.env.PORT || 5000;
 const start = async () => {
   try {
+    // eslint-disable-next-line no-undef
     await connectDB(process.env.MONGO_URI);
     app.listen(port, () => console.log(`Server is listening in ${port}...`));
   } catch (error) {
